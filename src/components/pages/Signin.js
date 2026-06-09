@@ -1,8 +1,14 @@
-function Signin(){
-    return(
-        <div>
-            <p>Signin</p>
-        </div>
+import FormSignin from "../layout/FormSignin"
+import styles from "./Signin.module.css"
+
+function Signin() {
+    return (
+
+            <div className={styles.signin_container}>
+                <FormSignin />
+            </div>
+
+
     )
 }
 
