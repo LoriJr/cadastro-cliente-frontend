@@ -1,5 +1,6 @@
 // import Container from "./Container";
 import styles from './FormSignin.module.css'
+import { Link } from 'react-router-dom';
 
 import { useState } from "react"
 
@@ -47,6 +48,10 @@ function FormSignin() {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                </div>
+
+                <div>
+                    <a href="/">Cadastre-se</a>
                 </div>
 
                 <button type="submit">Entrar</button>
