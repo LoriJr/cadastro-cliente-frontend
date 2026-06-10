@@ -27,3 +27,11 @@ button {
 button:hover{
     background-color: rgb(159, 173, 169);
 }
+
+a {
+    
+}
+
+.link {
+    text-decoration: none;
+}

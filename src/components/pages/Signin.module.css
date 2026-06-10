@@ -5,3 +5,7 @@
     padding: 0.5em;
     width: 100%;
 }
+
+.signin_continer a {
+    text-decoration: none;
+}

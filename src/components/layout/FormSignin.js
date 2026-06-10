@@ -51,7 +51,7 @@ function FormSignin() {
                 </div>
 
                 <div>
-                    <a href="/">Cadastre-se</a>
+                    <Link className={styles.link} to="/signup">Cadastre-se </Link>
                 </div>
 
                 <button type="submit">Entrar</button>
