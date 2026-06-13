@@ -1,7 +1,10 @@
 import styles from './FormSignup.module.css'
-import { useState } from 'react'
+import { useReducer, useState } from 'react'
+import { useRef } from 'react'
 
 function FormSignup() {
+
+    const formRef = useRef(null)
 
     const [step, setStep] = useState(1)
 
@@ -49,36 +52,44 @@ function FormSignup() {
         // fetch(...)
     }
 
+    function proximoPasso() {
+        if (formRef.current.checkValidity()) {
+            setStep(2)
+        } else {
+            formRef.current.reportValidity()
+        }
+
+    }
 
 
     return (
         <section className={styles.container_form}>
-            <form onSubmit={cadastrarUsuario}>
+            <form ref={formRef} onSubmit={cadastrarUsuario}>
 
                 {step === 1 && (
 
                     <>
                         <label htmlFor="name">nome</label>
-                        <input type="text" name="name" id="name" value={user.name} onChange={handleChange} />
+                        <input type="text" name="name" id="name" value={user.name} onChange={handleChange} required />
 
                         <label htmlFor="email">e-mail</label>
-                        <input type="email" name="email" id="email" value={user.email} onChange={handleChange} />
+                        <input type="email" name="email" id="email" value={user.email} onChange={handleChange} required />
 
                         <label htmlFor="phone">phone</label>
-                        <input type="tel" name="phone" id="phone" value={user.phone} onChange={handleChange} />
+                        <input type="tel" name="phone" id="phone" value={user.phone} onChange={handleChange} required />
 
                         <label htmlFor="cpf">cpf</label>
-                        <input type="text" name="cpf" id="cpf" value={user.cpf} onChange={handleChange} />
+                        <input type="text" name="cpf" id="cpf" value={user.cpf} onChange={handleChange} required />
 
                         <label htmlFor="rg">rg</label>
-                        <input type="text" name="rg" id="rg" value={user.rg} onChange={handleChange} />
+                        <input type="text" name="rg" id="rg" value={user.rg} onChange={handleChange} required />
 
                         <label htmlFor="birthDate">data nascimento</label>
-                        <input type="date" name="birthDate" id="birthDate" value={user.birthDate} onChange={handleChange} />
+                        <input type="date" name="birthDate" id="birthDate" value={user.birthDate} onChange={handleChange} required />
 
                         <button
                             type="button"
-                            onClick={() => setStep(2)} >Próximo
+                            onClick={proximoPasso} >Próximo
 
                         </button>
                     </>
@@ -87,25 +98,25 @@ function FormSignup() {
                 {step === 2 && (
                     <>
                         <label htmlFor="zipCode">cep</label>
-                        <input type="text" name="zipCode" id="zipCode" value={user.address.zipCode} onChange={handleAddressChange} />
+                        <input type="text" name="zipCode" id="zipCode" value={user.address.zipCode} onChange={handleAddressChange} required />
 
                         <label htmlFor="addressLine1">logradouro</label>
-                        <input type="text" name="addressLine1" id="addressLine1" value={user.address.addressLine1} onChange={handleAddressChange} />
+                        <input type="text" name="addressLine1" id="addressLine1" value={user.address.addressLine1} onChange={handleAddressChange} required />
 
                         <label htmlFor="number">número</label>
-                        <input type="text" name="number" id="number" value={user.address.number} onChange={handleAddressChange} />
+                        <input type="text" name="number" id="number" value={user.address.number} onChange={handleAddressChange} required />
 
                         <label htmlFor="addressLine2">complemento</label>
                         <input type="text" name="addressLine2" id="addressLine2" value={user.address.addressLine2} onChange={handleAddressChange} />
 
                         <label htmlFor="neighborhood" >bairro</label>
-                        <input type="text" name="neighborhood" id="neighborhood" value={user.address.neighborhood} onChange={handleAddressChange} />
+                        <input type="text" name="neighborhood" id="neighborhood" value={user.address.neighborhood} onChange={handleAddressChange} required />
 
                         <label htmlFor="city">cidade</label>
-                        <input type="text" name="city" id="city" value={user.address.city} onChange={handleAddressChange} />
+                        <input type="text" name="city" id="city" value={user.address.city} onChange={handleAddressChange} required />
 
                         <label htmlFor="state">estado</label>
-                        <input type="text" name="state" id="state" value={user.address.state} onChange={handleAddressChange} />
+                        <input type="text" name="state" id="state" value={user.address.state} onChange={handleAddressChange} required />
 
                         <button
                             type="button"
