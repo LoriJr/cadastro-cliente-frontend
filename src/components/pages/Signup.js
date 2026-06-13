@@ -1,8 +1,8 @@
+import FormSignup from "../layout/FormSignup"
+
 function Signup(){
     return(
-        <div>
-            <p>Signup</p>
-        </div>
+        <FormSignup />
     )
 }
 
