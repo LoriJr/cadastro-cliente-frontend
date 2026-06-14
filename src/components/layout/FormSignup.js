@@ -1,12 +1,15 @@
 import styles from './FormSignup.module.css'
-import { useReducer, useState } from 'react'
-import { useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useRef, useState } from 'react'
 
 function FormSignup() {
 
     const formRef = useRef(null)
-
+    const navigate = useNavigate()
     const [step, setStep] = useState(1)
+
+    const apiURL = process.env.REACT_APP_API_URL
+    console.log(apiURL)
 
     const [user, setUser] = useState({
         name: "",
@@ -43,13 +46,29 @@ function FormSignup() {
         })
     }
 
-    function cadastrarUsuario(e) {
+    async function cadastrarUsuario(e) {
         e.preventDefault()
 
         console.log(JSON.stringify(user, null, 2))
 
-        // Aqui futuramente você fará:
-        // fetch(...)
+        const response = await fetch(
+            `${apiURL}/users`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            }
+        )
+
+        console.log(response)
+
+        if(response.status == 201){
+            alert("Cadastro realizado com sucesso");
+            navigate("/")
+        }
+        
     }
 
     function proximoPasso() {
