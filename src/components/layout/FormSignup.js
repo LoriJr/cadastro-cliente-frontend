@@ -65,8 +65,12 @@ function FormSignup() {
         console.log(response)
 
         if(response.status == 201){
-            alert("Cadastro realizado com sucesso");
-            navigate("/")
+            // alert("Cadastro realizado com sucesso");
+            navigate("/SignupPassword", {
+                state: {
+                    email: user.email
+                }
+            })
         }
         
     }
