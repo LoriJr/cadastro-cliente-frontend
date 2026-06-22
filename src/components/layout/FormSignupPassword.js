@@ -5,7 +5,7 @@ import { useState } from 'react'
 function FormLogin() {
 
     const location = useLocation()
-    const email = location.state?.email;
+    const email = location.state?.email
 
     const navigate = useNavigate()
     const apiURL = process.env.REACT_APP_API_URL
