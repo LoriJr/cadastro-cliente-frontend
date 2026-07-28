@@ -1,11 +1,14 @@
-import styles from './FormSignupPassword.module.css'
-import { useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import styles from './FormSignupPassword.module.css'
+import SignupSuccess from './SignupSuccess'
 
 function FormLogin() {
 
     const location = useLocation()
     const email = location.state?.email
+
+    const [showSuccessModal, setShowSuccessModal] = useState(false)
 
     const navigate = useNavigate()
     const apiURL = process.env.REACT_APP_API_URL
@@ -33,13 +36,13 @@ function FormLogin() {
         console.log(response)
 
         if (response.status == 201) {
-            alert("Cadastro realizado com sucesso");
-            navigate("/signin")
+             setShowSuccessModal(true);
         }
 
     }
 
     return (
+        <>
         <section className={styles.container_login}>
             <form onSubmit={cadastraSenha}>
                 <label htmlFor="email">Email</label>
@@ -65,6 +68,17 @@ function FormLogin() {
 
             </form>
         </section>
+        
+        <SignupSuccess
+        open={showSuccessModal}
+        email={password.email}
+        onClose={() => {
+            setShowSuccessModal(false);
+            navigate("/signin");
+        }}
+    />
+        </>
+        
     )
 }
 

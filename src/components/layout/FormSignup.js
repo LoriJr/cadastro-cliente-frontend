@@ -62,7 +62,9 @@ function FormSignup() {
             }
         )
 
-        console.log(response)
+        const body = await response.json();
+
+        console.log(body)
 
         if(response.status == 201){
             // alert("Cadastro realizado com sucesso");
