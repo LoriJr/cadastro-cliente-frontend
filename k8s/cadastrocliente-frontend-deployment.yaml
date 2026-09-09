@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deployment
+  name: cadastrocliente-frontend
   labels:
-    app: frontend
+    app: cadastrocliente-frontend
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: frontend
+      app: cadastrocliente-frontend
   template:
     metadata:
       labels:
-        app: frontend
+        app: cadastrocliente-frontend
     spec:
       containers:
-      - name: frontend
+      - name: cadastrocliente-frontend
         # Lembre-se de alterar para o endereço correto da sua imagem no registry (ex: dockerhub, AWS ECR)
-        image: seu-usuario-dockerhub/cadastro-cliente-frontend:latest
+        image: southamerica-east1-docker.pkg.dev/viratech-1010-508115/cadastrocliente-front-repo/frontend:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80

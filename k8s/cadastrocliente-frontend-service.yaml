@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: frontend-service
   labels:
-    app: frontend
+    app: cadastrocliente-frontend
 spec:
   selector:
-    app: frontend
+    app: cadastrocliente-frontend
   ports:
     - protocol: TCP
       port: 80
