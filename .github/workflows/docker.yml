@@ -42,7 +42,7 @@ jobs:
       - name: Atualizar imagem do Frontend
         run: |
           kubectl set image deployment/cadastrocliente-frontend \
-          frontend=southamerica-east1-docker.pkg.dev/viratech-1010-508115/cadastrocliente-front-repo/frontend:${{ github.sha }}
+          cadastrocliente-frontend=southamerica-east1-docker.pkg.dev/viratech-1010-508115/cadastrocliente-front-repo/frontend:${{ github.sha }}
 
       - name: Aguardar rollout
         run: kubectl rollout status deployment/cadastrocliente-frontend --timeout=120s
