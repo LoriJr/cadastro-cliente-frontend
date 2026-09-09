@@ -15,7 +15,7 @@ jobs:
 
       # Apenas para testar o build do docker-compose
       - name: Build with Docker Compose
-        run: docker-compose build
+        run: docker compose build
 
       # Exemplo de como você faria push para o Docker Hub:
       # - name: Log in to Docker Hub
