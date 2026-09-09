@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build Frontend
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Apenas para testar o build do docker-compose
       - name: Build with Docker Compose
