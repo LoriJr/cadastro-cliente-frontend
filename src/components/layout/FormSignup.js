@@ -8,7 +8,7 @@ function FormSignup() {
     const navigate = useNavigate()
     const [step, setStep] = useState(1)
 
-    const apiURL = process.env.REACT_APP_API_URL
+    const apiURL = process.env.REACT_APP_URL
     console.log(apiURL)
 
     const [user, setUser] = useState({

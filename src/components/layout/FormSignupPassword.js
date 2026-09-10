@@ -11,7 +11,7 @@ function FormLogin() {
     const [showSuccessModal, setShowSuccessModal] = useState(false)
 
     const navigate = useNavigate()
-    const apiURL = process.env.REACT_APP_API_URL
+    const apiURL = process.env.REACT_APP_URL
     console.log(apiURL)
 
     const [password, setPassword] = useState({

@@ -10,7 +10,7 @@ function FormSignin() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
-    const apiURL = process.env.REACT_APP_API_URL
+    const apiURL = process.env.REACT_APP_URL
 
     async function handleSubmit(event) {
         event.preventDefault();
