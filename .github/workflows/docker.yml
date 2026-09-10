@@ -28,7 +28,7 @@ jobs:
       - name: Build e Push da Imagem React
         run: |
           docker build \
-            --build-arg REACT_APP_URL="${{ vars.APP_URL }}" \
+            --build-arg REACT_APP_URL="${{ vars.REACT_APP_URL }}" \
             -t southamerica-east1-docker.pkg.dev/viratech-1010-508115/cadastrocliente-front-repo/frontend:${{ github.sha }} .
           
           docker push southamerica-east1-docker.pkg.dev/viratech-1010-508115/cadastrocliente-front-repo/frontend:${{ github.sha }}
